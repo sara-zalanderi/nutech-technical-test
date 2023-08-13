@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to Test Nutech Coding Test Project
 
-Open a terminal for server
+After installing node modules, run the command for running server
 
 ```
 npm run server
