@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to Test Nutech Coding Test Project
 
+<img src="https://github.com/sara-zalanderi/nutech-technical-test/blob/main/public/AppInterface.png" alt="app_interface" />
+
 Open a terminal for server
 
 ```
