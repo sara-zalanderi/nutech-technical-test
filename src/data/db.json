@@ -1,0 +1,76 @@
+{
+  "buy": [
+    {
+      "id": 1,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "name": "Bulbasaur",
+      "price": 90000,
+      "quantity": 3
+    },
+    {
+      "name": "Eevee",
+      "price": 5000000,
+      "quantity": 3,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "id": 5
+    },
+    {
+      "name": "Charizard",
+      "price": 7000000,
+      "quantity": 9,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "id": 6
+    },
+    {
+      "quantity": 100,
+      "name": "Ninetales",
+      "price": 9000,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "id": 7
+    },
+    {
+      "quantity": 10,
+      "name": "Gardevoir",
+      "price": 75000,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png",
+      "id": 8
+    },
+    {
+      "name": "Milotic",
+      "price": 8700000,
+      "quantity": 60,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png",
+      "id": 9
+    },
+    {
+      "name": "Suicune",
+      "price": 70000000000,
+      "quantity": 1,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/245.png",
+      "id": 10
+    }
+  ],
+  "sell": [
+    {
+      "id": 1,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "name": "Bulbasaur",
+      "price": 90000,
+      "quantity": 2
+    },
+    {
+      "name": "Beautifly",
+      "price": 190000,
+      "quantity": 6,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/267.png",
+      "id": 2
+    },
+    {
+      "name": "Lilligant",
+      "price": 70000,
+      "quantity": 90,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/549.png",
+      "id": 3
+    }
+  ]
+}
