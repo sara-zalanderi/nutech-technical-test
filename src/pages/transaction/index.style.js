@@ -1,4 +1,4 @@
-import { Modal, Grid } from "semantic-ui-react";
+import { Modal, Grid, Message } from "semantic-ui-react";
 import styled from "styled-components";
 
 export const StyledModal = styled(Modal)`
@@ -56,5 +56,16 @@ export const StyledContent = styled(Grid.Row)`
   }
   && .column:last-child {
     padding-right: 0;
+  }
+`;
+
+export const StyledMessage = styled(Message)`
+  && {
+    width: 100%;
+    margin: 0 1rem;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;

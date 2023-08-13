@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
-import { Loader, Grid } from "semantic-ui-react";
+import { Loader, Grid, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 
@@ -49,6 +49,7 @@ const Transaction = (props) => {
               status: "warning",
               isOpen: true,
             });
+            setIsLoading(false);
           });
       })
       .catch(() => {
@@ -58,6 +59,7 @@ const Transaction = (props) => {
           status: "warning",
           isOpen: true,
         });
+        setIsLoading(false);
       });
   }, [props]);
 
@@ -101,6 +103,7 @@ const Transaction = (props) => {
                 status: "warning",
                 isOpen: true,
               });
+              setIsLoading(false);
             });
         })
         .catch(() => {
@@ -109,6 +112,7 @@ const Transaction = (props) => {
             status: "warning",
             isOpen: true,
           });
+          setIsLoading(false);
         });
     }
   }, [refresh, props, params, pageOptions]);
@@ -146,6 +150,7 @@ const Transaction = (props) => {
                 status: "warning",
                 isOpen: true,
               });
+              setIsLoading(false);
             });
         }
 
@@ -166,6 +171,7 @@ const Transaction = (props) => {
           status: "warning",
           isOpen: true,
         });
+        setIsLoading(false);
       });
   };
 

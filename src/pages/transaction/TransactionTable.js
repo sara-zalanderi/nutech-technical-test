@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Modal, Image, Grid } from "semantic-ui-react";
 
-import { StyledLine, StyledContent } from "./index.style";
+import { StyledLine, StyledContent, StyledMessage } from "./index.style";
 import { TransactionUpdate } from "./TransactionUpdate";
 
 export const TransactionTable = ({
@@ -37,7 +37,7 @@ export const TransactionTable = ({
   };
 
   return (
-    <Grid>
+    <Grid style={{ width: "100%" }}>
       <Grid.Row>
         <Grid.Column width="3">Pokémon Name</Grid.Column>
         <Grid.Column width="4">Pokémon Image</Grid.Column>
@@ -50,7 +50,7 @@ export const TransactionTable = ({
           <hr />
         </Grid.Column>
       </StyledLine>
-      {transactionData.length > 0 &&
+      {transactionData.length > 0 ? (
         transactionData.map((item) => {
           return (
             <StyledContent key={transactionData.indexOf(item)}>
@@ -98,7 +98,10 @@ export const TransactionTable = ({
               </Grid.Column>
             </StyledContent>
           );
-        })}
+        })
+      ) : (
+        <StyledMessage>No data</StyledMessage>
+      )}
     </Grid>
   );
 };
