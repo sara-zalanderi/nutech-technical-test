@@ -79,9 +79,7 @@ export const TransactionAdd = ({
       url: `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`,
     })
       .then(function (response) {
-        let other = response.data.sprites.other;
-        let official = Object.values(other)[Object.keys(other).length - 1];
-        setCardImage(official.front_default);
+        setCardImage(response.data.sprites.other.dream_world.front_default);
       })
       .catch(() => {
         setAlert({
