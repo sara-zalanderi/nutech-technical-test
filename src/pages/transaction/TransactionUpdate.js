@@ -12,6 +12,7 @@ export const TransactionUpdate = ({
   setIsLoading,
   setAlert,
   setRefresh,
+  transactionAPI,
 }) => {
   const [updateOpen, setUpdateOpen] = useState(false);
   const [cardImage, setCardImage] = useState("");
@@ -53,7 +54,7 @@ export const TransactionUpdate = ({
           isOpen: true,
         });
       } else {
-        fetch(`http://localhost:3001/${props.type}/` + itemId, {
+        fetch(transactionAPI + `/${props.type}/` + itemId, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

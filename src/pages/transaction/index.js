@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
-import { Loader, Grid, Message } from "semantic-ui-react";
+import { Loader, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 
@@ -8,6 +8,10 @@ import { TransactionAdd } from "./TransactionAdd";
 import { TransactionTable } from "./TransactionTable";
 import SearchFilter from "../../components/Search";
 import DefaultPagination from "../../components/Pagination";
+
+const transactionAPI = "https://nutech-test-server-production.up.railway.app";
+// FOR TESTING IN LOCAL
+// const transactionAPI = "http://localhost:3001";
 
 const Transaction = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,13 +33,13 @@ const Transaction = (props) => {
   const [initData, setInitData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/${props.type}`)
+    fetch(transactionAPI + `/${props.type}`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setInitData(data);
-        fetch(`http://localhost:3001/${props.type}?_page=1&_limit=5`)
+        fetch(transactionAPI + `/${props.type}?_page=1&_limit=5`)
           .then((res) => {
             return res.json();
           })
@@ -61,7 +65,7 @@ const Transaction = (props) => {
         });
         setIsLoading(false);
       });
-  }, [props]);
+  }, []);
 
   useEffect(() => {
     if (initData) {
@@ -76,7 +80,7 @@ const Transaction = (props) => {
 
   useEffect(() => {
     if (refresh === true) {
-      fetch(`http://localhost:3001/${props.type}`)
+      fetch(transactionAPI + `/${props.type}`)
         .then((res) => {
           return res.json();
         })
@@ -86,9 +90,7 @@ const Transaction = (props) => {
             ...pageOptions,
             totalPages: totalPage,
           });
-          fetch(
-            `http://localhost:3001/${props.type}?_page=${params.page}&_limit=5`
-          )
+          fetch(transactionAPI + `/${props.type}?_page=${params.page}&_limit=5`)
             .then((res) => {
               return res.json();
             })
@@ -130,10 +132,12 @@ const Transaction = (props) => {
     );
     if (param.page) {
       if (param.q) {
-        url = `http://localhost:3001/${props.type}?_page=${param.page}&_limit=${params.limit}&q=${param.q}`;
+        url =
+          transactionAPI +
+          `/${props.type}?_page=${param.page}&_limit=${params.limit}&q=${param.q}`;
       } else {
         if (search) {
-          fetch(`http://localhost:3001/${props.type}`)
+          fetch(transactionAPI + `/${props.type}`)
             .then((res) => {
               return res.json();
             })
@@ -154,7 +158,9 @@ const Transaction = (props) => {
             });
         }
 
-        url = `http://localhost:3001/${props.type}?_page=${param.page}&_limit=${params.limit}`;
+        url =
+          transactionAPI +
+          `/${props.type}?_page=${param.page}&_limit=${params.limit}`;
       }
     }
     fetch(url)
@@ -231,6 +237,7 @@ const Transaction = (props) => {
           setAlert={setAlert}
           setRefresh={setRefresh}
           normalizeFormData={normalizeFormData}
+          transactionAPI={transactionAPI}
         />
       </div>
       <br />
@@ -244,6 +251,7 @@ const Transaction = (props) => {
             setIsLoading={setIsLoading}
             setAlert={setAlert}
             setRefresh={setRefresh}
+            transactionAPI={transactionAPI}
           />
           {pageOptions && pageOptions.totalPages > 0 && (
             <DefaultPagination

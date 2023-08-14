@@ -13,6 +13,7 @@ export const TransactionAdd = ({
   setAlert,
   setRefresh,
   normalizeFormData,
+  transactionAPI,
 }) => {
   const [addOpen, setAddOpen] = useState(false);
   const [cardImage, setCardImage] = useState("");
@@ -33,7 +34,7 @@ export const TransactionAdd = ({
           isOpen: true,
         });
       } else {
-        fetch(`http://localhost:3001/${props.type}`, {
+        fetch(transactionAPI + `/${props.type}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

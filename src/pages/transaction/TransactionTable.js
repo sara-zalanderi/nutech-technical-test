@@ -10,11 +10,12 @@ export const TransactionTable = ({
   setIsLoading,
   setAlert,
   setRefresh,
+  transactionAPI,
 }) => {
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const deleteTransaction = (itemId) => {
-    fetch(`http://localhost:3001/${props.type}/` + itemId, {
+    fetch(transactionAPI + `/${props.type}/` + itemId, {
       method: "DELETE",
     })
       .then(() => {
@@ -70,6 +71,7 @@ export const TransactionTable = ({
                   setIsLoading={setIsLoading}
                   setAlert={setAlert}
                   setRefresh={setRefresh}
+                  transactionAPI={transactionAPI}
                 />
                 <Modal
                   onClose={() => setDeleteOpen({ [item.id]: false })}
