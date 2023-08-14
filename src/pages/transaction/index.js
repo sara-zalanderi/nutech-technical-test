@@ -31,41 +31,45 @@ const Transaction = (props) => {
     totalPages: 1,
   });
   const [initData, setInitData] = useState();
+  const [initCount, setInitCount] = useState(0);
 
   useEffect(() => {
-    fetch(transactionAPI + `/${props.type}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setInitData(data);
-        fetch(transactionAPI + `/${props.type}?_page=1&_limit=5`)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            setTransactionData(data);
-            setIsLoading(false);
-          })
-          .catch(() => {
-            setAlert({
-              message: "Loading data unsuccessful",
-              status: "warning",
-              isOpen: true,
+    if (initCount === 0) {
+      fetch(transactionAPI + `/${props.type}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setInitData(data);
+          fetch(transactionAPI + `/${props.type}?_page=1&_limit=5`)
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              setTransactionData(data);
+              setIsLoading(false);
+            })
+            .catch(() => {
+              setAlert({
+                message: "Loading data unsuccessful",
+                status: "warning",
+                isOpen: true,
+              });
+              setIsLoading(false);
             });
-            setIsLoading(false);
+        })
+        .catch(() => {
+          setAlert({
+            message:
+              "Server is not running yet. Try running npm run server in different terminal",
+            status: "warning",
+            isOpen: true,
           });
-      })
-      .catch(() => {
-        setAlert({
-          message:
-            "Server is not running yet. Try running npm run server in different terminal",
-          status: "warning",
-          isOpen: true,
+          setIsLoading(false);
         });
-        setIsLoading(false);
-      });
-  }, []);
+      setInitCount(1);
+    }
+  }, [props, initCount]);
 
   useEffect(() => {
     if (initData) {
