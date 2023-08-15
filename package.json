@@ -22,8 +22,8 @@
   },
   "scripts": {
     "server": "json-server --watch src/data/db.json --port 3001",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --max_old_space_size=4096 start",
+    "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
